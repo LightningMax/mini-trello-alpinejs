@@ -152,7 +152,7 @@ header {
   padding: 15px;
   border: none;
   border-radius: 10px;
-  width: 100%;
+  width: 95%;
   min-height: 180px;
   resize: vertical;
   background-color: #f0f0f0;
@@ -199,4 +199,18 @@ header {
 
 .add-card-modal-content button:last-child:hover {
   background-color: #d0d0d0;
+}
+
+.add-card-modal-content .status-select-wrapper {
+  position: relative;
+  width: 150px;
+}
+.add-card-modal-content .status-select-wrapper .fa-chevron-down {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #333;
+  font-size: 0.8em;
 }
