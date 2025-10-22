@@ -3,23 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mini Trello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/86a3b5a49f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer type="module" src="./src/index.js"></script>
+
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
     ></script>
 
-    <script defer type="module" src="./src/index.js"></script>
-  </head>
-  <body>
-    <div x-data="card">
-      <input x-model="newCard" type="text" name="" id="" />
-      <p x-text="newCard"></p>
-    </div>
-
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Mini Trello</h1>
+    </header>
+
+    <main>
+      <div class="lists-container">
+        <div class="list">
+          <header>
+            <h2>To Do</h2>
+          </header>
+
+          <div x-data>
+            <ul>
+              <template x-for="card in $store.card.cards">
+                <li class="card" x-show="card.status == 'to do'">
+                  <span x-text="card.title"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+
+          <div
+            class="add-card-modal"
+            role="dialog"
+            x-data
+            x-show="$store.cardModal.on"
+            x-transition
+            x-cloak
+          >
+            <div class="add-card-modal-content">
+              <button @click="$store.cardModal.toggle()">
+                <i class="fa-solid fa-x"></i>
+              </button>
+              <input x-model="$store.card.title" type="text" />
+              <textarea
+                x-model="$store.card.description"
+                name=""
+                id=""
+                placeholder="Add description"
+              >
+              </textarea>
+              <select x-model="$store.card.status" name="" id="">
+                <option value="to do">o do</option>
+                <option value="doing">doing</option>
+                <option value="done">done</option>
+              </select>
+
+              <button @click="$store.card.addCard();$store.cardModal.toggle()">
+                add new card
+              </button>
+            </div>
+          </div>
+          <div x-data class="new-card-container">
+            <button @click="$store.cardModal.toggle()">Add new card</button>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

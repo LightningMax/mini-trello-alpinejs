@@ -1,5 +1,13 @@
 import card from "./card.js";
 
 document.addEventListener("alpine:init", () => {
-  Alpine.data("card", card);
+  Alpine.store("card", card());
+
+  Alpine.store("cardModal", {
+    on: false,
+
+    toggle() {
+      this.on = !this.on;
+    },
+  });
 });
