@@ -63,7 +63,11 @@
               <button @click="$store.cardModal.toggle()">
                 <i class="fa-solid fa-x"></i>
               </button>
-              <input x-model="$store.card.title" type="text" />
+              <input
+                x-model="$store.card.title"
+                type="text"
+                placeholder="New Title"
+              />
               <textarea
                 x-model="$store.card.description"
                 name=""
@@ -71,11 +75,14 @@
                 placeholder="Add description"
               >
               </textarea>
-              <select x-model="$store.card.status" name="" id="">
-                <option value="to do">to do</option>
-                <option value="doing">doing</option>
-                <option value="done">done</option>
-              </select>
+              <div class="status-select-wrapper">
+                <select x-model="$store.card.status" name="" id="">
+                  <option value="to do">to do</option>
+                  <option value="doing">doing</option>
+                  <option value="done">done</option>
+                </select>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
 
               <button @click="$store.card.addCard();$store.cardModal.toggle()">
                 add new card
