@@ -78,15 +78,15 @@ header {
 
 .add-card-modal {
   display: flex;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .add-card-modal .add-card-modal-content {
@@ -95,4 +95,108 @@ header {
   padding: 20px;
   border-radius: 20px;
   width: 60%;
+}
+
+/*            */
+
+.add-card-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.add-card-modal .add-card-modal-content {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 20px;
+  width: 550px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-card-modal .add-card-modal-content > button:first-child {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #333;
+  padding: 0;
+  line-height: 1;
+}
+
+.add-card-modal-content input[type="text"] {
+  padding: 0;
+  border: none;
+  font-size: 2em;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  outline: none;
+}
+
+.add-card-modal-content textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  background-color: #f0f0f0;
+  font-size: 1em;
+  color: #555;
+  outline: none;
+}
+
+.add-card-modal-content textarea::placeholder {
+  color: #888;
+}
+
+.add-card-modal-content select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 150px;
+  background-color: #f0f0f0;
+  font-size: 1em;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.add-card-modal-content button:last-child {
+  background-color: #e0e0e0;
+  color: #555;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: none;
+  align-self: flex-start;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.add-card-modal-content button:last-child:hover {
+  background-color: #d0d0d0;
 }
