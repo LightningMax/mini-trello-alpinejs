@@ -32,6 +32,10 @@
   <body>
     <header>
       <h1>Mini Trello</h1>
+      <div x-data class="search-btn">
+        <input x-model="$store.card.search" type="search" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
     </header>
 
     <main>
@@ -43,7 +47,7 @@
 
           <div x-data>
             <ul class="list-cards">
-              <template x-for="card in $store.card.cards">
+              <template x-for="card in $store.card.filteredCards">
                 <li class="card" x-show="card.status == 'to do'">
                   <button @click="">
                     <i class="fa-solid fa-x"></i>
