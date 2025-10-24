@@ -42,10 +42,16 @@
           </header>
 
           <div x-data>
-            <ul>
+            <ul class="list-cards">
               <template x-for="card in $store.card.cards">
                 <li class="card" x-show="card.status == 'to do'">
-                  <span x-text="card.title"></span>
+                  <button @click="">
+                    <i class="fa-solid fa-x"></i>
+                  </button>
+                  <div>
+                    <h3 x-text="card.title"></h3>
+                    <p x-text="card.description"></p>
+                  </div>
                 </li>
               </template>
             </ul>
