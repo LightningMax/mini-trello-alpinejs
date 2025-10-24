@@ -3,6 +3,7 @@ export default () => ({
   description: "",
   status: "to do",
   cards: [],
+  search: "",
 
   addCard() {
     this.cards.push({
@@ -14,5 +15,9 @@ export default () => ({
 
   modifyCard(index) {
     this.cards.splice(index, 1);
+  },
+
+  get filteredCards() {
+    return this.cards.filter((card) => card.title.startsWith(this.search));
   },
 });
