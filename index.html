@@ -17,12 +17,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <script defer type="module" src="./src/index.js"></script>
-
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
     ></script>
+
+    <script defer type="module" src="./src/index.js"></script>
 
     <script
       defer
@@ -41,14 +41,26 @@
     <main>
       <div class="lists-container">
         <div class="list">
-          <header>
+          <header class="list-header" x-data>
             <h2>To Do</h2>
+            <div class="status-select-wrapper">
+              <select x-model="$store.filteredCards.status">
+                <option value="all">All</option>
+                <option value="to do">To Do</option>
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+              </select>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
           </header>
 
           <div x-data>
             <ul class="list-cards">
               <template x-for="card in $store.card.filteredCards">
-                <li class="card" x-show="card.status == 'to do'">
+                <li
+                  class="card"
+                  x-show="$store.filteredCards.status === card.status || $store.filteredCards.status === 'all'"
+                >
                   <button @click="">
                     <i class="fa-solid fa-x"></i>
                   </button>

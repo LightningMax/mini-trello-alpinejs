@@ -3,6 +3,8 @@ import card from "./card.js";
 document.addEventListener("alpine:init", () => {
   Alpine.store("card", card());
 
+  Alpine.store("filteredCards", { status: "all" });
+
   Alpine.store("cardModal", {
     on: false,
 

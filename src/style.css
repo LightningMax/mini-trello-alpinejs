@@ -292,3 +292,35 @@ main {
   color: #333;
   font-size: 0.8em;
 }
+
+.list-header select {
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 150px;
+  background-color: #f0f0f0;
+  font-size: 1em;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.list-header .status-select-wrapper {
+  position: relative;
+  width: 150px;
+}
+
+.list-header .status-select-wrapper .fa-chevron-down {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #333;
+  font-size: 0.8em;
+}
