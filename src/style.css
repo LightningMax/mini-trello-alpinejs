@@ -55,6 +55,11 @@ header {
   pointer-events: none; /* this makes the icon not block input clicks */
 }
 
+main {
+  display: flex;
+  justify-content: center;
+}
+
 .lists-container {
   margin: 0px 50px;
   display: flex;
