@@ -37,4 +37,12 @@ export default () => ({
   get filteredCards() {
     return this.cards.filter((card) => card.title.startsWith(this.search));
   },
+
+  deleteCard(indexToDelete) {
+    this.cards.splice(indexToDelete, 1);
+    if (!confirm("Êtes-vous sûr de vouloir supprimer cette tâche ?")) {
+      return;
+    }
+    this.activeFilter = "all";
+  },
 });
