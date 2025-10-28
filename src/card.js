@@ -2,7 +2,7 @@ export default () => ({
   title: "",
   description: "",
   status: "to do",
-  cards: [],
+  cards: Alpine.$persist([]).as("card_list"),
   search: "",
   editIndex: null,
 
