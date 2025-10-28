@@ -56,9 +56,13 @@
 
           <div x-data>
             <ul class="list-cards">
-              <template x-for="card in $store.card.filteredCards">
+              <template
+                x-for="(card, index) in $store.card.filteredCards"
+                :key="index"
+              >
                 <li
                   class="card"
+                  @click="$store.modifyModal.open(index)"
                   x-show="$store.filteredCards.status === card.status || $store.filteredCards.status === 'all'"
                 >
                   <button @click="">
@@ -71,6 +75,42 @@
                 </li>
               </template>
             </ul>
+            <div
+              class="add-card-modal"
+              role="dialog"
+              x-show="$store.modifyModal.on"
+              x-cloak
+            >
+              <div class="add-card-modal-content">
+                <button @click="$store.modifyModal.close()">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+                <input
+                  x-model="$store.card.title"
+                  type="text"
+                  placeholder="New title"
+                />
+                <textarea
+                  x-model="$store.card.description"
+                  placeholder="New description"
+                >
+                </textarea>
+                <div class="status-select-wrapper">
+                  <select x-model="$store.card.status" name="" id="">
+                    <option value="to do">to do</option>
+                    <option value="doing">doing</option>
+                    <option value="done">done</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <button
+                  @click="$store.card.modifyCard(); $store.modifyModal.close()"
+                >
+                  Modify card
+                </button>
+              </div>
+            </div>
           </div>
 
           <div
