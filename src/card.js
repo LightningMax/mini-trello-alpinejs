@@ -40,9 +40,8 @@ export default () => ({
 
   deleteCard(indexToDelete) {
     this.cards.splice(indexToDelete, 1);
-    if (!confirm("Êtes-vous sûr de vouloir supprimer cette tâche ?")) {
+    if (!confirm("Are you sure you want to remove the task ?")) {
       return;
     }
-    this.activeFilter = "all";
   },
 });
