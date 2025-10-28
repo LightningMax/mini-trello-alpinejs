@@ -65,7 +65,7 @@
                   @click="$store.modifyModal.open(index)"
                   x-show="$store.filteredCards.status === card.status || $store.filteredCards.status === 'all'"
                 >
-                  <button @click="">
+                  <button @click.stop="$store.card.deleteCard(index)">
                     <i class="fa-solid fa-x"></i>
                   </button>
                   <div>

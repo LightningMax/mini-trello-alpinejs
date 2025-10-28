@@ -37,4 +37,11 @@ export default () => ({
   get filteredCards() {
     return this.cards.filter((card) => card.title.startsWith(this.search));
   },
+
+  deleteCard(indexToDelete) {
+    this.cards.splice(indexToDelete, 1);
+    if (!confirm("Are you sure you want to remove the task ?")) {
+      return;
+    }
+  },
 });
