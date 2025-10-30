@@ -57,8 +57,8 @@ export default () => ({
   },
 
   deleteCard(indexToDelete) {
-    this.cards.splice(indexToDelete, 1);
-    if (!confirm("Are you sure you want to remove the task ?")) {
+    if (confirm("Are you sure you want to remove the task ?")) {
+      this.cards.splice(indexToDelete, 1);
       return;
     }
   },
