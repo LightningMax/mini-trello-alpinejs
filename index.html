@@ -44,16 +44,16 @@
           <header class="list-header" x-data>
             <div class="list-header-top">
               <template x-if="$store.filteredCards.status === 'all'">
-                <span>All Cards</span>
+                <h2>All Cards</h2>
               </template>
               <template x-if="$store.filteredCards.status === 'to do'">
-                <span>To Do</span>
+                <h2>To Do</h2>
               </template>
               <template x-if="$store.filteredCards.status === 'doing'">
-                <span>Doing</span>
+                <h2>Doing</h2>
               </template>
               <template x-if="$store.filteredCards.status === 'done'">
-                <span>Done</span>
+                <h2>Done</h2>
               </template>
 
               <div class="card-counter">
