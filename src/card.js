@@ -7,6 +7,11 @@ export default () => ({
   editIndex: null,
 
   addCard() {
+    if (!this.title.trim()) {
+      alert("Please fill in title before adding a card.");
+      return;
+    }
+
     this.cards.push({
       index: this.cards.length - 1,
       title: this.title,
