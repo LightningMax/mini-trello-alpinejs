@@ -35,7 +35,25 @@ export default () => ({
   },
 
   get filteredCards() {
-    return this.cards.filter((card) => card.title.startsWith(this.search));
+    const status = Alpine.store("filteredCards").status;
+    let filtered = this.cards;
+
+    if (status !== "all") {
+      filtered = filtered.filter((card) => card.status === status);
+    }
+
+    if (this.search.trim() !== "") {
+      filtered = filtered.filter((card) =>
+        card.title.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
+
+    return filtered;
+  },
+
+  get count() {
+    console.log(this.filteredCards.length);
+    return this.filteredCards.length;
   },
 
   deleteCard(indexToDelete) {
