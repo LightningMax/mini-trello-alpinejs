@@ -42,7 +42,13 @@
       <div class="lists-container">
         <div class="list">
           <header class="list-header" x-data>
-            <h2>To Do</h2>
+            <div class="list-header-top">
+              <h2>To Do</h2>
+              <div class="card-counter">
+                <i class="fa-solid fa-note-sticky"></i>
+                <span x-text="$store.card.count"></span>
+              </div>
+            </div>
             <div class="status-select-wrapper">
               <select x-model="$store.filteredCards.status">
                 <option value="all">All</option>
@@ -56,6 +62,7 @@
 
           <div x-data>
             <ul class="list-cards">
+              <p x-text="$store.filteredCards.count"></p>
               <template
                 x-for="(card, index) in $store.card.filteredCards"
                 :key="index"
