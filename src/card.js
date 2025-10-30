@@ -1,10 +1,14 @@
 export default () => ({
   title: "",
   description: "",
-  status: "to do",
+  status: "all",
   cards: Alpine.$persist([]).as("card_list"),
   search: "",
   editIndex: null,
+
+  get count() {
+    return this.cards.filter((card) => card.status === this.status).length;
+  },
 
   addCard() {
     this.cards.push({
@@ -39,9 +43,10 @@ export default () => ({
   },
 
   deleteCard(indexToDelete) {
-    this.cards.splice(indexToDelete, 1);
-    if (!confirm("Are you sure you want to remove the task ?")) {
-      return;
+    {
+      confirm("Are you sure you want to remove the task ?")
+        ? this.cards.splice(indexToDelete, 1)
+        : "";
     }
   },
 });
