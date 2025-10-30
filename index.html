@@ -43,7 +43,19 @@
         <div class="list">
           <header class="list-header" x-data>
             <div class="list-header-top">
-              <h2>To Do</h2>
+              <template x-if="$store.filteredCards.status === 'all'">
+                <span>All Cards</span>
+              </template>
+              <template x-if="$store.filteredCards.status === 'to do'">
+                <span>To Do</span>
+              </template>
+              <template x-if="$store.filteredCards.status === 'doing'">
+                <span>Doing</span>
+              </template>
+              <template x-if="$store.filteredCards.status === 'done'">
+                <span>Done</span>
+              </template>
+
               <div class="card-counter">
                 <i class="fa-solid fa-note-sticky"></i>
                 <span x-text="$store.card.count"></span>
